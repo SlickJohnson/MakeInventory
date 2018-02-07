@@ -58,4 +58,20 @@ extension InventoriesViewController: UITableViewDelegate {
         
         return cell
     }
+
+  func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+      // delete item at indexPath
+      self.inventories.remove(at: indexPath.row)
+      self.tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+
+    let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+      // edit item at indexPath
+    }
+
+    edit.backgroundColor = .blue
+
+    return [delete, edit]
+  }
 }
