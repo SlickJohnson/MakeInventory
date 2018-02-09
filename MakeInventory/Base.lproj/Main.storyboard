@@ -67,6 +67,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="G26-8O-8Ed" id="r4G-rh-pAq"/>
+                        <segue destination="irS-gU-p5e" kind="show" identifier="edit" id="KKe-Uk-SuI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -144,22 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iPW-GK-OHi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1208.8" y="33.733133433283363"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="y5G-1U-Jvc">
-            <objects>
-                <viewController id="Wez-dz-Uz9" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8Wl-Pd-zP7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Vcm-MQ-GuH"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="agD-i3-dZg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1925" y="35"/>
+            <point key="canvasLocation" x="1298" y="34"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="4oJ-iZ-nK0">
@@ -178,6 +164,79 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zy0-VP-Cdv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-466" y="34"/>
+        </scene>
+        <!--Edit Inventory-->
+        <scene sceneID="h5t-Zx-Rn8">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="irS-gU-p5e" customClass="EditInventoryViewController" customModule="MakeInventory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hr7-HN-KLz">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="HX6-2i-BTe">
+                                <rect key="frame" x="15" y="134" width="345" height="95"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="yLf-hW-olE">
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A14-HO-L14">
+                                                <rect key="frame" x="0.0" y="9.5" width="45" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cvn-PH-NyA">
+                                                <rect key="frame" x="65" y="0.0" width="280" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <viewLayoutGuide key="safeArea" id="m11-JG-8oY"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1Kw-r0-NEI">
+                                        <rect key="frame" x="0.0" y="65" width="345" height="30"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quantity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BfW-Vu-sA7">
+                                                <rect key="frame" x="0.0" y="9.5" width="65" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PTm-hA-F2Q">
+                                                <rect key="frame" x="85" y="0.0" width="260" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HX6-2i-BTe" firstAttribute="top" secondItem="qlg-SR-pYt" secondAttribute="top" constant="70" id="XXM-Qv-zII"/>
+                            <constraint firstItem="HX6-2i-BTe" firstAttribute="leading" secondItem="qlg-SR-pYt" secondAttribute="leading" constant="15" id="mdM-ll-mac"/>
+                            <constraint firstItem="qlg-SR-pYt" firstAttribute="trailing" secondItem="HX6-2i-BTe" secondAttribute="trailing" constant="15" id="qv9-Bc-ivY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qlg-SR-pYt"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Edit Inventory" id="RwY-fO-ET8">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ctW-7r-82W">
+                            <connections>
+                                <action selector="savePressed:" destination="irS-gU-p5e" id="nT8-Il-iem"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="inventoryNameField" destination="cvn-PH-NyA" id="QgL-kO-a6l"/>
+                        <outlet property="inventoryQuantityField" destination="PTm-hA-F2Q" id="vx9-Zh-1Qp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1H9-P7-NHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1297" y="772"/>
         </scene>
     </scenes>
 </document>

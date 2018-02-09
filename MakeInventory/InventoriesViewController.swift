@@ -11,6 +11,7 @@ import CoreData
 
 class InventoriesViewController: UIViewController {
   let stack = CoreDataStack.instance
+  var selectedInventory: Inventory! = nil
 
   @IBOutlet weak var tableView: UITableView!
   var inventories = [Inventory]()
@@ -33,6 +34,11 @@ class InventoriesViewController: UIViewController {
     } catch let error {
       print(error)
     }
+  }
+
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    let editScreen = segue.destination as? EditInventoryViewController
+    editScreen?.inventory = selectedInventory
   }
 }
 
@@ -63,13 +69,11 @@ extension InventoriesViewController: UITableViewDelegate {
 
   func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
     let item = inventories[indexPath.row]
+    let context = stack.privateContext
+    let inv = stack.privateContext.object(with: item.objectID) as! Inventory
 
     let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-      let context = self.stack.privateContext
-      let inv = self.stack.privateContext.object(with: item.objectID)
-
       context.delete(inv)
-
 
       self.stack.save(to: context)
       self.inventories.remove(at: indexPath.row)
@@ -77,7 +81,8 @@ extension InventoriesViewController: UITableViewDelegate {
     }
 
     let edit = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
-      // edit item at indexPath
+      self.selectedInventory = item
+      self.performSegue(withIdentifier: "edit", sender: nil)
     }
 
     edit.backgroundColor = .blue
